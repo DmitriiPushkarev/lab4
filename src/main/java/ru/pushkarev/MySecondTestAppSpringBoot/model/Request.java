@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 @Data
 @Builder
@@ -22,10 +21,9 @@ public class Request {
 
     @NotBlank
     @Max(32)
-    @Pattern(regexp = "^((?!123).)*$")
     private String operationUid;
 
-    private String systemName;
+    private Systems systemName;
 
     @NotBlank
     private String systemTime;
@@ -39,4 +37,19 @@ public class Request {
     private int templateId;
     private int productionCode;
     private int smsCode;
+
+    @Override
+    public String toString() {
+        return "{" +
+                "uid='" + uid + '\'' +
+                ", operationUid='" + operationUid + '\'' +
+                ", systemName='" + systemName + '\'' +
+                ", systemTime='" + systemTime + '\'' +
+                ", source='" + source + '\'' +
+                ", communicationId=" + communicationId +
+                ", templateId=" + templateId +
+                ", productionCode=" + productionCode +
+                ", smsCode=" + smsCode +
+                '}';
+    }
 }
