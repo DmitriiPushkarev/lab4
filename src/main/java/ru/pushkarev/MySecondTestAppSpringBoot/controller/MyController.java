@@ -38,6 +38,8 @@ public class MyController {
 
         log.info("request: {}", request);
 
+        log.info("Разница в миллисекундах: {}", System.currentTimeMillis() - Long.parseLong(request.getSystemTime()));
+
         Response response = Response.builder()
                 .uid(request.getUid())
                 .operationUid(request.getOperationUid())
